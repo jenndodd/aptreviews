@@ -2,7 +2,7 @@
 
 <ul>
   <% @apartments.each do |apartment| %>
-    <li> <p><%= apartment.address %>, Apartment<%= apartment.unit %></p></li>
+    <li><%= link_to "#{ apartment.address }, Apartment #{ apartment.unit }", apartment_path(apartment) %></li>
   <% end %>
 
 </ul>
