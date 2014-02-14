@@ -15,5 +15,4 @@
   <% @apartments.each do |apartment| %>
     <li><%= link_to "#{ apartment.address }, Apartment #{ apartment.unit }", apartment_path(apartment) %></li>
   <% end %>
-
 </ul>
