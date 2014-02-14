@@ -5,8 +5,8 @@
 <%= raw("<p><strong class='error'>#{flash[:search_error_message]}</strong></p>") unless flash[:search_error_message].nil? %>
 
 <form method="GET" action="/apartments/search">
-  <label for="address">Enter Address Here:</label>
-  <input type="text" name="address" id="address_input" />
+  <label for="search_input">Enter Address Here:</label>
+  <input type="text" name="search_input" id="search_input_field" />
   <input type="submit" />
 </form>
 
