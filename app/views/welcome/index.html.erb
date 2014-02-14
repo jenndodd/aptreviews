@@ -1,5 +1,16 @@
 <h1> Welcome to AptReviews! </h1>
 
+<h2>Search for Address</h2>
+
+<%= raw("<p><strong class='error'>#{flash[:search_error_message]}</strong></p>") unless flash[:search_error_message].nil? %>
+
+<form method="GET" action="/apartments/search">
+  <label for="address">Enter Address Here:</label>
+  <input type="text" name="address" id="address_input" />
+  <input type="submit" />
+</form>
+
+<h2>Apartment List</h2>
 <ul>
   <% @apartments.each do |apartment| %>
     <li><%= link_to "#{ apartment.address }, Apartment #{ apartment.unit }", apartment_path(apartment) %></li>
