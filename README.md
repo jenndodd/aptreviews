@@ -1,0 +1,1 @@
+An apartment review app utilizing Google Static Maps API.
