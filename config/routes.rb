@@ -1,13 +1,13 @@
 Aptreviews::Application.routes.draw do
 
-  resources :apartments, only: [:index, :show, :edit, :update] do 
+  resources :apartments, only: [:index, :create, :show, :edit, :update] do 
     collection do
       get "search"
     end
   end
 
   resources :users do
-    resources :apartments, except: [:index, :show, :edit, :update]
+    resources :apartments, only: [:new, :destroy]
   end
 
   get "/login", to: "session#new"

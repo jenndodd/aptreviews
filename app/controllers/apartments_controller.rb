@@ -1,13 +1,46 @@
 class ApartmentsController < ApplicationController
+  before_action( :load_apartment, only: [:show, :edit, :update] )
 
   def index
     @apartments = Apartment.all
   end
 
+  def new
+    @apartment = Apartment.new
+
+    render(:new)
+  end
+
+  def create
+    @apartment = Apartment.create(apartment_params)
+    @user = User.find_by(id: session[:user_id])
+    @apartment.user = @user
+    if @apartment.save
+      redirect_to apartments_path(@apartment)
+    else
+      render(:new)
+    end
+  end
+
   def show
     @apartment = Apartment.find(params[:id])
-    @apartment.address = make_map_url(@apartment.address)
+    @user = User.find_by(params[:user_id])
+    @url_address = make_map_url(@apartment.address)
     @listings = @apartment.listings.all
+  end
+
+  def edit
+    @update_worked = true
+  end
+
+  def update
+    @update_worked = @apartment.update(apartment_params)
+    
+    if @update_worked
+      redirect_to apartment_path(@apartment)
+    else
+      render(:edit)
+    end
   end
 
   def make_map_url(address)
@@ -34,4 +67,17 @@ class ApartmentsController < ApplicationController
       redirect_to apartment_path(@found_apartment[0])
     end
   end
+
+  private
+
+  def load_apartment 
+    @apartment = Apartment.find(params[:id])
+  end
+
+  def apartment_params
+    params.require(:apartment).permit(:address, :unit)
+  end
+
+
+
 end

@@ -8,6 +8,11 @@
   <input type="submit" />
 </form>
 
+<% if logged_in? %>
+  <%= link_to "Add New Apartment", new_user_apartment_path(current_user.id) %>
+  <br/>
+<% end %>
+
 <h2>Apartment List</h2>
 <ul>
   <% @apartments.each do |apartment| %>

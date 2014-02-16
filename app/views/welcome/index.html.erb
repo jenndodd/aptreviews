@@ -3,11 +3,11 @@
 <div class="user_panel">
   <p><%= link_to "Join us!", new_user_path %></p>
   <% if session[:user_id].nil? %>
-    <p><%= link_to "Login, Old Friend...", "/login" %></p>
+    <p><%= link_to "Login", "/login" %></p>
     <% else %>
     <% user = User.find(@user_id) %>
     <%= form_tag session_path, method: "delete" do %>
-    <%= submit_tag("Log out, #{ user.first_name }") %>
+    <%= submit_tag("Log out, #{ user.username }") %>
     <% end %>
   <% end %>
 </div>
@@ -21,6 +21,11 @@
   <input type="text" name="search_input" id="search_input_field" />
   <input type="submit" />
 </form>
+
+<% if logged_in? %>
+  <%= link_to "Add New Apartment", new_user_apartment_path(current_user.id) %>
+  <br/>
+<% end %>
 
 <h2>Apartment List</h2>
 <ul>

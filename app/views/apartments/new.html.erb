@@ -1,11 +1,10 @@
-<h1>Sign up</h1>
+<h1> Add an apartment! </h1>
 
-<h3>Please fill out the form below</h3>
-<% unless @user.errors.messages.empty? %>
+<% unless @apartment.errors.messages.empty? %>
   <div id="errors">
     <h3>Errors!</h3>
     <ul>
-      <% @user.errors.messages.each do |field,error| %>
+      <% @apartment.errors.messages.each do |field,error| %>
         <li><em><%= "#{field.capitalize.to_s.gsub("_", " ")} #{error.first}!" %></em></li>
       <% end %>
     </ul>

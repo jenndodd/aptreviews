@@ -1,9 +1,12 @@
-<h1> I am an Apartment! Learn all aboot me.</h1>
+<h1> <%= @apartment.address %>, Apartment <%= @apartment.unit %></h1>
+<p><%= @user.username %></p>
+<p><%= link_to "Edit This Apartment", edit_apartment_path(@apartment) %></p>
 <%= raw("<p><strong class='success'>#{flash[:success_message]}</strong></p>") unless flash[:success_message].nil? %>
 
 <div class="map_container">
-  <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @apartment.address %>&size=400x400&zoom=15&markers=color:red%7Clabel:C%7C<%= @apartment.address %>&sensor=false" alt="Address on Map">
+  <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @apartment.address %>&size=400x400&zoom=15&markers=color:red%7Clabel:C%7C<%= @url_address %>&sensor=false" alt="Address on Map">
 </div>
+
 
 <ul>
   <% @listings.each do |listing| %>
