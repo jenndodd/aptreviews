@@ -2,7 +2,7 @@
 
 <p><%= link_to "Edit My Info", edit_user_path(@user) %></p>
 
-<p><%= link_to "Browse Apartments", apartments_path %></p>
+<p><%= link_to "Browse Apartments", root_path %></p>
 
 <%= form_tag user_path(@user), method: "delete" do %>
   <%= submit_tag("Delete My Account") %>

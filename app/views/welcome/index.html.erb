@@ -2,6 +2,14 @@
 
 <div class="user_panel">
   <p><%= link_to "Join us!", new_user_path %></p>
+  <% if session[:user_id].nil? %>
+    <p><%= link_to "Login, Old Friend...", "/login" %></p>
+    <% else %>
+    <% user = User.find(@user_id) %>
+    <%= form_tag session_path, method: "delete" do %>
+    <%= submit_tag("Log out, #{ user.first_name }") %>
+    <% end %>
+  <% end %>
 </div>
 
 <h2>Search for Address</h2>
