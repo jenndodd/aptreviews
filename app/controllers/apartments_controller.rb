@@ -2,6 +2,7 @@ class ApartmentsController < ApplicationController
   def show
     @apartment = Apartment.find(params[:id])
     @apartment.address = make_map_url(@apartment.address)
+    @listings = @apartment.listings.all
   end
 
   def make_map_url(address)
@@ -27,6 +28,5 @@ class ApartmentsController < ApplicationController
       flash[:success_message] = "You found this apartment!"
       redirect_to apartment_path(@found_apartment[0])
     end
-
   end
 end

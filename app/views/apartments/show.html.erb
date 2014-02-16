@@ -4,3 +4,9 @@
 <div class="map_container">
   <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @apartment.address %>&size=400x400&zoom=15&markers=color:red%7Clabel:C%7C<%= @apartment.address %>&sensor=false" alt="Address on Map">
 </div>
+
+<ul>
+  <% @listings.each do |listing| %>
+    <li><a href=<%= listing.url %> target='_blank'> <%= listing.url %> </a></li>
+  <% end %>
+</ul>
