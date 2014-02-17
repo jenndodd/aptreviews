@@ -2,6 +2,7 @@ Aptreviews::Application.routes.draw do
 
   resources :apartments, only: [:index, :create, :show, :edit, :update] do 
     resources :reviews
+    resources :listings, only: [:new, :create]
     collection do
       get "search"
     end

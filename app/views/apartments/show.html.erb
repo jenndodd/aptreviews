@@ -7,6 +7,10 @@
   <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @apartment.address %>&size=400x400&zoom=15&markers=color:red%7Clabel:C%7C<%= @url_address %>&sensor=false" alt="Address on Map">
 </div>
 
+<% if logged_in? %>
+  <%= link_to "Add a Listing", new_apartment_listing_path(@apartment) %>
+  <br/>
+<% end %>
 
 <ul>
   <% @listings.each do |listing| %>
@@ -19,3 +23,15 @@
   <%= link_to "Add a Review", new_apartment_review_path(@apartment) %>
   <br/>
 <% end %>
+
+<ul>
+  <% @reviews.each do |review| %>
+    <li>
+      <p><%= review.datetime %></p>
+      <p><%= review.title %></p>
+      <p><%= review.review %></p>
+      <p><%= review.rating %></p>
+      <p><%= review.user.username %></p>
+    </li>
+  <% end %>
+</ul>

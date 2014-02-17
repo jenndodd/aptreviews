@@ -1,0 +1,10 @@
+<h1> Add a Listing! </h1>
+
+<%= form_for [@apartment, @listing] do |f| %>
+
+  <%= f.label :url %>
+  <%= f.url_field :url %>
+  <br/>
+
+  <%= f.submit "Add!" %>
+<% end %>

@@ -26,6 +26,7 @@ class ApartmentsController < ApplicationController
     @user = User.find_by(params[:user_id])
     @url_address = make_map_url(@apartment.address)
     @listings = @apartment.listings.all
+    @reviews = @apartment.reviews.all
   end
 
   def edit

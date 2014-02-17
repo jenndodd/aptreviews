@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    @apartment = Apartment.find(params[:apartment_id])
+    @apartment = Apartment.find(params[:id])
 
     render(:new)
   end
@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     @review.apartment = @apartment
     
     if @review.save
-      redirect_to apartments_path(@apartment)
+      redirect_to ("/apartments/#{ @apartment.id }")
     else
       render(:new)
     end
