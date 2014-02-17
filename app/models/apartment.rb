@@ -5,4 +5,5 @@ class Apartment < ActiveRecord::Base
 
   has_many :listings
   belongs_to :user
+  has_many :reviews
 end

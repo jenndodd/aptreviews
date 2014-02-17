@@ -23,7 +23,6 @@ class ApartmentsController < ApplicationController
   end
 
   def show
-    @apartment = Apartment.find(params[:id])
     @user = User.find_by(params[:user_id])
     @url_address = make_map_url(@apartment.address)
     @listings = @apartment.listings.all

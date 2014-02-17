@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   self.has_secure_password()
 
   has_many :apartments
+  has_many :reviews
 end

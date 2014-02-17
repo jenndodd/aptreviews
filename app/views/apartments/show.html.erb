@@ -13,3 +13,9 @@
     <li><a href=<%= listing.url %> target='_blank'> <%= listing.url %> </a></li>
   <% end %>
 </ul>
+
+
+<% if logged_in? %>
+  <%= link_to "Add a Review", new_apartment_review_path(@apartment) %>
+  <br/>
+<% end %>

@@ -1,0 +1,27 @@
+<%= form_for [@apartment, @review] do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br/>
+
+  <%= f.label :review %>
+  <%= f.text_area :review %>
+  <br/>
+
+  <%= label_tag("Rating:") %>
+  <%= label_tag(:rating_one, 1) %>
+  <%= f.radio_button(:rating, 1) %>
+  <%= label_tag(:rating_two, 2) %>
+  <%= f.radio_button(:rating, 2) %>
+  <%= label_tag(:rating_three, 3) %>
+  <%= f.radio_button(:rating, 3, :checked => true )%>
+  <%= label_tag(:rating_four, 4) %>
+  <%= f.radio_button(:rating, 4) %>
+  <%= label_tag(:rating_five, 5) %>
+  <%= f.radio_button(:rating, 5) %>
+  <br />
+
+
+  <%= f.submit @review.id.nil? ? "Add!" : "Save Changes" %>
+<% end %>
+
