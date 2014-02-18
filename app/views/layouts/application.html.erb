@@ -8,7 +8,12 @@
 </head>
 <body>
 
-<%= yield %>
+  <%= render "/shared/navbar" %>
+  <div class="color-spacer"></div>
+  <div class="container">
+
+    <%= yield %>
+  </div>
 
 </body>
 </html>

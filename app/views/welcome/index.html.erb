@@ -1,26 +1,16 @@
-<h1> Welcome to AptReviews! </h1>
+<div class="search-banner">
+  <h1> Welcome to AptReviews! </h1>
 
-<div class="user_panel">
-  <p><%= link_to "Join us!", new_user_path %></p>
-  <% if session[:user_id].nil? %>
-    <p><%= link_to "Login", "/login" %></p>
-    <% else %>
-    <% user = User.find(@user_id) %>
-    <%= form_tag session_path, method: "delete" do %>
-    <%= submit_tag("Log out, #{ user.username }") %>
-    <% end %>
-  <% end %>
+  <h2>Search for Address</h2>
+
+  <%= raw("<p><strong class='error'>#{flash[:search_error_message]}</strong></p>") unless flash[:search_error_message].nil? %>
+
+  <form method="GET" action="/apartments/search">
+    <label for="search_input">Enter Address Here:</label>
+    <input type="text" name="search_input" id="search_input_field" />
+    <input type="submit" />
+  </form>
 </div>
-
-<h2>Search for Address</h2>
-
-<%= raw("<p><strong class='error'>#{flash[:search_error_message]}</strong></p>") unless flash[:search_error_message].nil? %>
-
-<form method="GET" action="/apartments/search">
-  <label for="search_input">Enter Address Here:</label>
-  <input type="text" name="search_input" id="search_input_field" />
-  <input type="submit" />
-</form>
 
 <% if logged_in? %>
   <%= link_to "Add New Apartment", new_user_apartment_path(current_user.id) %>

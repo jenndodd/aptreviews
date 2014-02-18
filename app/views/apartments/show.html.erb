@@ -1,37 +1,55 @@
 <h1> <%= @apartment.address %>, Apartment <%= @apartment.unit %></h1>
-<p><%= @user.username %></p>
-<p><%= link_to "Edit This Apartment", edit_apartment_path(@apartment) %></p>
+
 <%= raw("<p><strong class='success'>#{flash[:success_message]}</strong></p>") unless flash[:success_message].nil? %>
 
-<div class="map_container">
-  <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @apartment.address %>&size=400x400&zoom=15&markers=color:red%7Clabel:C%7C<%= @url_address %>&sensor=false" alt="Address on Map">
+<div class="map-container">
+  <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @apartment.address %>&size=400x400&zoom=15&markers=color:0xe062e2%7Clabel:C%7C<%= @url_address %>&sensor=false&style=feature:road.highway|element:geometry|hue:0x00ffdd|saturation:-65|lightness:30&style=feature:road.arterial|element:geometry|hue:0x4d00ff|visibility:simplified&style=feature:water|hue:0x0077ff|saturation:-52|lightness:-15" alt="Address on Map">
 </div>
 
-<% if logged_in? %>
-  <%= link_to "Add a Listing", new_apartment_listing_path(@apartment) %>
-  <br/>
-<% end %>
+<div class="apartment-details">
+  <h3>Details:</h3>
+  <% if logged_in? %>
+    <%= form_for [@apartment, @listing] do |f| %>
+      <%= f.label :url, "Add a URL" %>
+      <%= f.text_field :url %>
 
-<ul>
-  <% @listings.each do |listing| %>
-    <li><a href=<%= listing.url %> target='_blank'> <%= listing.url %> </a></li>
+      <%= f.submit %>
+    <% end %>
   <% end %>
-</ul>
 
+  <h4>Links to listings:</h4>
+  <ul class="listing-list">
+    <% @listings.each do |listing| %>
+      <li><a href=<%= listing.url %> target='_blank'> <%= listing.url %> </a></li>
+    <% end %>
+  </ul>
 
-<% if logged_in? %>
-  <%= link_to "Add a Review", new_apartment_review_path(@apartment) %>
-  <br/>
-<% end %>
+  <small> Added by user: <%= @user.username %></small>
+</div>
 
-<ul>
-  <% @reviews.each do |review| %>
-    <li>
-      <p><%= review.datetime %></p>
-      <p><%= review.title %></p>
-      <p><%= review.review %></p>
-      <p><%= review.rating %></p>
-      <p><%= review.user.username %></p>
-    </li>
+<div class="clear"></div>
+
+<div class="review-container">
+  <% if logged_in? %>
+    <%= link_to "Add a Review", new_apartment_review_path(@apartment) %>
+    <br/>
   <% end %>
-</ul>
+
+  <ul class="review-list">
+    <% @reviews.each do |review| %>
+      <li>
+        <p><%= review.datetime %></p>
+        <p><%= review.title %></p>
+        <p><%= review.review %></p>
+        <p><%= review.rating %></p>
+        <p><%= review.user.username %></p>
+        <% if logged_in? && (current_user.id == review.user_id) %>
+          <p><%= link_to "Edit Your Review", edit_apartment_review_path(@apartment, review) %></p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
+

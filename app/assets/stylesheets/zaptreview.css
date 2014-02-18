@@ -1,0 +1,209 @@
+/****************************
+ **************************** Extra Reset.
+ **************************** Stupid User Agent Stylesheet...
+ ****************************/
+
+
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote,  
+pre, form, fieldset, table, th, td { margin: 0; padding: 0; }
+
+
+/****************************
+ ****************************  Basics.
+ ****************************/
+
+
+
+body {
+  background-color: #e8e4dc;
+}
+
+li {
+  list-style-type: none;
+}
+
+.color-spacer {
+  height: 48px;
+  width: 100%;
+  top: 0;
+  background-color: #75D2C3;
+  box-shadow: 0 0 2px #666;
+  position: fixed;
+  z-index: 10;
+}
+
+.container {
+  background-color: #FFF;
+  width: 840px;
+  margin: 0 auto;
+  padding-top: 48px;
+  position: relative;
+  box-shadow: 0 0 1px #aaa;
+  z-index: 5;
+}
+
+
+
+h1 {
+  padding: 35px 20px 20px 20px;
+  text-align: center;
+}
+
+h3 {
+  padding-bottom: 20px;
+}
+
+h4 {
+  padding: 40px 0px 15px 0px;
+}
+
+.clear {
+  clear:both;
+}
+
+
+/****************************
+ ****************************  Nav.
+ ****************************/
+
+
+
+.navbar {
+  background-color: #444;
+  width: 100%;
+  top: 0;
+  height: 45px;
+  position: fixed;
+  z-index: 15;
+ }
+
+.nav-left {
+  position: relative;
+  display: inline;
+  float: left;
+}
+
+.nav-left p {
+  color: #FFF;
+  font-weight: bold;
+  display: inline-block;
+  font-size : 20px;
+  vertical-align: center;
+  padding-top: 12px;
+  padding-left: 10px;
+  position: relative;
+  float: left;
+}
+
+.nav-left  p:hover {
+  color: #75D2C3;
+}
+
+.nav-search {
+  position: relative;
+  float: left;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.nav-search input#search_input_field {
+  width: 250px;
+}
+
+.nav-right {
+  position: relative;
+  float: right;
+}
+
+.nav-right ul {
+  padding-right: 5px;
+}
+
+.nav-right li {
+  color: #FFF;
+  display: inline-block;
+  padding-top: 14px;
+  padding-right: 8px;
+}
+
+.nav-right li a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.nav-right li a:hover {
+  color: #75D2C3;
+}
+
+.nav-right li a:active {
+  color: #c468c5;
+}
+
+
+/****************************
+ ****************************  Search Banner.
+ ****************************/
+
+
+
+
+
+
+ /****************************
+ ****************************  Apartment Show.
+ ****************************/
+
+.map-container {
+  padding: 20px;
+  float: left;
+  position: relative;
+}
+
+.map-container img {
+  border: solid 1px #bbb;
+}
+
+.apartment-details {
+  padding: 20px 20px 20px 0px;
+  float: right;
+  min-height: 400px;
+  position: relative;
+  width: 378px;
+}
+
+ul.listing-list  {
+  padding-bottom: 20px;
+}
+
+ul.listing-list li a {
+  text-decoration: none;
+  color: #c468c5;
+}
+
+ul.listing-list li a:hover {
+  color: #e8a4e9;
+}
+
+.review-container {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
