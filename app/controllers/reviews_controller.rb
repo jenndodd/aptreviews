@@ -2,14 +2,14 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    @apartment = Apartment.find(params[:id])
+    @apartment = Apartment.find(params[:apartment_id])
 
     render(:new)
   end
 
   def create
     @review = Review.create(review_params)
-    @apartment = Apartment.find_by(params[:id])
+    @apartment = Apartment.find_by(params[:apartment_id])
     @user = User.find_by(id: session[:user_id])
     @review.datetime = DateTime.now
     @review.user = @user

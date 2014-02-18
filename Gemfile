@@ -47,3 +47,6 @@ gem 'pry-rails', group: [:development, :test]
 
 # Deploying to Heroku
 gem 'rails_12factor'
+
+# Geocoder
+gem "geocoder"
