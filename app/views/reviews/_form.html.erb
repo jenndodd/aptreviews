@@ -1,25 +1,27 @@
-<%= form_for [@apartment, @review] do |f| %>
+<%= form_for [@apartment, @review], :html => { :class => "rating-form"} do |f| %>
+  <div class="label-input">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br/>
+  <div class="label-input">
+    <%= f.label :review %>
+    <%= f.text_area :review %>
+  </div>
 
-  <%= f.label :review %>
-  <%= f.text_area :review %>
-  <br/>
-
-  <%= label_tag("Rating:") %>
-  <%= label_tag(:rating_one, 1) %>
-  <%= f.radio_button(:rating, 1) %>
-  <%= label_tag(:rating_two, 2) %>
-  <%= f.radio_button(:rating, 2) %>
-  <%= label_tag(:rating_three, 3) %>
-  <%= f.radio_button(:rating, 3, :checked => true )%>
-  <%= label_tag(:rating_four, 4) %>
-  <%= f.radio_button(:rating, 4) %>
-  <%= label_tag(:rating_five, 5) %>
-  <%= f.radio_button(:rating, 5) %>
-  <br />
+  <div class="label-input">
+    <%= label_tag("Rating:") %>
+    <%= label_tag :rating_one, 1, { :class => 'radio-label' } %>
+    <%= f.radio_button :rating, 1 %>
+    <%= label_tag :rating_two, 2 , { :class => 'radio-label' } %>
+    <%= f.radio_button :rating, 2  %>
+    <%= label_tag :rating_three, 3 , { :class => 'radio-label' } %>
+    <%= f.radio_button :rating, 3, :checked => true %>
+    <%= label_tag :rating_four, 4 , { :class => 'radio-label' } %>
+    <%= f.radio_button :rating, 4 %>
+    <%= label_tag :rating_five, 5, { :class => 'radio-label' } %>
+    <%= f.radio_button :rating, 5 %>
+  </div>
 
 
   <%= f.submit @review.id.nil? ? "Add!" : "Save Changes" %>

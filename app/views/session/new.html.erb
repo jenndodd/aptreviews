@@ -7,11 +7,17 @@
   </div>
 <% end %>
 
-<%= form_tag "/session" do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
+<h1>Welcome back!</h1>
+
+<%= form_tag "/session", { :class => "login-form"} do %>
+  <div class="label-input">
+    <%= label_tag :username %>
+    <%= text_field_tag :username %>
+  </div>
+  <div class="label-input">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
   
   <%= submit_tag "Log in!" %>
 <% end %>

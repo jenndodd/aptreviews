@@ -1,4 +1,4 @@
-<%= form_for [@apartment] do |f| %>
+<%= form_for @apartment, :html => { :class => "apartment-form"} do |f| %>
 
   <div class="label-input">
     <%= f.label :number %>
@@ -27,3 +27,5 @@
 
   <%= f.submit @apartment.id.nil? ? "Add!" : "Save Changes" %>
 <% end %>
+
+<div class="clear"></div>

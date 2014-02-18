@@ -230,22 +230,47 @@ ul.link-list li a:hover {
 ****************************/
 
 
-form {
-  text-align: center;
-  margin-left: -50px;
+form.apartment-form, .login-form{
+  width: 325px;
+  margin: 0 auto;
 }
+
+form.rating-form {
+  width: 550px;
+  margin: 0 auto;
+  padding-top: 20px;
+} 
 
 label {
   display: inline-block;
-  width: 120px;
+  width: 75px;
   text-align: right;
   padding-right: 10px;
 
 }
 
+input#review_title {
+  width: 400px;
+}
+
+textarea#review_review {
+  width: 400px;
+  height: 200px;
+}
+
+label.radio-label {
+  width: 5px;
+  padding-right: 5px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
 .label-input {
   padding: 10px;
 }
+
 
 
 
