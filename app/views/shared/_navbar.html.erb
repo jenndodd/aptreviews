@@ -1,6 +1,6 @@
 <div class="navbar">
   <div class="nav-left">
-    <%= link_to raw("<p>AptReviews</p>"), apartments_path %>
+    <%= link_to raw("<p>AptReviews</p>"), root_path %>
     <% unless current_page?(controller: "welcome", action: "index") || current_page?(controller: "apartments", action: "index") %>
       <form class="nav-search" method="GET" action="/apartments/search">
         <input type="text" name="search_input" id="search_input_field" placeholder="Search Address or URL"/>

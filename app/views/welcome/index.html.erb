@@ -1,25 +1,26 @@
 <div class="search-banner">
   <h1> Welcome to AptReviews! </h1>
 
-  <h2>Search for Address</h2>
+  <h2>Search for an Address or a Listing URL</h2>
 
-  <%= raw("<p><strong class='error'>#{flash[:search_error_message]}</strong></p>") unless flash[:search_error_message].nil? %>
-
-  <form method="GET" action="/apartments/search">
-    <label for="search_input">Enter Address Here:</label>
-    <input type="text" name="search_input" id="search_input_field" />
+  <form class="search-form" method="GET" action="/apartments/search">
+    <input type="text" name="search_input" id="search_input_field" placeholder="Search Address or URL"/>
     <input type="submit" />
   </form>
 </div>
 
-<% if logged_in? %>
-  <%= link_to "Add New Apartment", new_user_apartment_path(current_user.id) %>
-  <br/>
-<% end %>
+<div class="apartment-list">
+  <%= raw("<p><strong class='error'>#{flash[:search_error_message]}</strong></p>") unless flash[:search_error_message].nil? %>
 
-<h2>Apartment List</h2>
-<ul>
-  <% @apartments.each do |apartment| %>
-    <li><%= link_to "#{ apartment.address }, Apartment #{ apartment.unit }", apartment_path(apartment) %></li>
+  <% if logged_in? %>
+    <%= link_to "Add New Apartment", new_user_apartment_path(current_user.id) %>
+    <br/>
   <% end %>
-</ul>
+
+  <h2>Apartment List</h2>
+  <ul class="link-list">
+    <% @apartments.each do |apartment| %>
+      <li><%= link_to "#{ apartment.address }, Apartment #{ apartment.unit }", apartment_path(apartment) %></li>
+    <% end %>
+  </ul>
+</div>
