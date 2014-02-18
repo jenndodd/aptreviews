@@ -1,12 +1,14 @@
 <%= form_for [@apartment] do |f| %>
 
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <br/>
-
-  <%= f.label :unit %>
-  <%= f.text_field :unit %>
-  <br/>
+  <div class="label-input">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+  
+  <div class="label-input">
+    <%= f.label :unit %>
+    <%= f.text_field :unit %>
+  </div>
 
   <%= f.submit @apartment.id.nil? ? "Add!" : "Save Changes" %>
 <% end %>
