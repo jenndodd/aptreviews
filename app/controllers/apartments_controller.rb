@@ -24,7 +24,8 @@ class ApartmentsController < ApplicationController
 
   def show
     @user = User.find_by(params[:user_id])
-    @url_address = make_map_url(@apartment.address)
+    @apartment = Apartment.find(params[:id])
+    @map_url_address = make_map_url
     @listings = @apartment.listings.all
     @listing = Listing.new
     @reviews = @apartment.reviews.all
@@ -44,8 +45,10 @@ class ApartmentsController < ApplicationController
     end
   end
 
-  def make_map_url(address)
-    address = address.gsub(" ", "+")
+  def make_map_url
+    @origin_apartment = Apartment.find(params[:id])
+    @origin_apartment_url = @origin_apartment.address.gsub(" ", "+")
+    return "http://maps.googleapis.com/maps/api/staticmap?center=#{ @origin_apartment_url }&size=400x400&zoom=15&markers=color:0xe062e2%7Clabel:1%7C#{ @origin_apartment_url }&sensor=false&style=feature:road.highway|element:geometry|hue:0x00ffdd|saturation:-65|lightness:30&style=feature:road.arterial|element:geometry|hue:0x4d00ff|visibility:simplified&style=feature:water|hue:0x0077ff|saturation:-52|lightness:-15"
   end
 
   def search
@@ -68,6 +71,23 @@ class ApartmentsController < ApplicationController
       redirect_to apartment_path(@found_apartment[0])
     end
   end
+
+  def nearby
+    @origin_apartment = Apartment.find(params[:id])
+    @origin_apartment_url = @origin_apartment.address.gsub(" ", "+")
+    @nearby_apartments = Apartment.near(@origin_apartment.address, 1).limit(10)
+    @nearby_apartments.delete_if {|apartment| apartment == @origin_apartment}
+
+    unless @nearby_apartments.empty?
+      @nearby_apartments_url = []
+      @nearby_apartments.each_with_index do |nearby_apartment, index|
+        @nearby_apartments_url << "markers=color:0x75D2C3%7Clabel:#{index+1}%7C#{ nearby_apartment.address.gsub(" ", "+") }&"
+        
+      end
+      @nearby_url = "http://maps.googleapis.com/maps/api/staticmap?center=#{ @origin_apartment_url }&size=400x400&zoom=14&markers=color:0xe062e2%7Clabel:O%7C#{ @origin_apartment_url }&#{@nearby_apartments_url.join}&sensor=false&style=feature:road.highway|element:geometry|hue:0x00ffdd|saturation:-65|lightness:30&style=feature:road.arterial|element:geometry|hue:0x4d00ff|visibility:simplified&style=feature:water|hue:0x0077ff|saturation:-52|lightness:-15"
+    end
+
+  end 
 
   private
 

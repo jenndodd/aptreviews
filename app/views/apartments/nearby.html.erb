@@ -1,0 +1,24 @@
+<h1> Apartments near <%= @origin_apartment.address %></h1>
+
+<%= raw("<p><strong class='success'>#{flash[:success_message]}</strong></p>") unless flash[:success_message].nil? %>
+<div class="map-container">
+  <img src="<%= @nearby_url%>" alt="Nearby on Map">
+</div>
+
+<div class="nearby-apartments">
+
+  <h4>Current Apartment:</h4>
+  <p><%= @origin_apartment.address %>, Apartment <%= @origin_apartment.unit %></p>
+
+  <h4>Nearby Apartments:</h4>
+  <% if @nearby_apartments.empty? %> 
+    <p>There are no other apartments reviewed nearby.</p>
+  <% end %>
+  <ul class="link-list">
+    <% @nearby_apartments.each_with_index do |apartment, index| %>
+      <li><%= index+1 %>. &nbsp <a href=<%= apartment_path(apartment.id) %> target='_blank'> <%= apartment.address %>, Apartment <%= apartment.unit %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="clear"></div>

@@ -1,6 +1,6 @@
 <h2>Apartment List</h2>
 <%= raw("<p><strong class='success'>#{flash[:multiple_success_message]}</strong></p>") unless flash[:multiple_success_message].nil? %>
-<ul>
+<ul class="link-list">
   <% @found_apartment.each do |apartment| %>
     <li><%= link_to "#{ apartment.address }, Apartment #{ apartment.unit }", apartment_path(apartment) %></li>
   <% end %>

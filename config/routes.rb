@@ -6,6 +6,9 @@ Aptreviews::Application.routes.draw do
     collection do
       get "search"
     end
+    member do 
+      get "nearby"
+    end
   end
 
   resources :users do

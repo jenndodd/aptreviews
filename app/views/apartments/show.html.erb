@@ -2,7 +2,11 @@
 
 <%= raw("<p><strong class='success'>#{flash[:success_message]}</strong></p>") unless flash[:success_message].nil? %>
 <div class="map-container">
-  <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @apartment.address %>&size=400x400&zoom=15&markers=color:0xe062e2%7Clabel:C%7C<%= @url_address %>&sensor=false&style=feature:road.highway|element:geometry|hue:0x00ffdd|saturation:-65|lightness:30&style=feature:road.arterial|element:geometry|hue:0x4d00ff|visibility:simplified&style=feature:water|hue:0x0077ff|saturation:-52|lightness:-15" alt="Address on Map">
+  <img src="<%= @map_url_address %>" alt="Address on Map">
+
+  <form class="nearby-search" method="GET" action="/apartments/<%= @apartment.id %>/nearby">
+    <input type="submit" value="Find Nearby Apartments" />
+  </form>
 </div>
 
 <div class="apartment-details">
