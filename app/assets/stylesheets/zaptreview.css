@@ -126,11 +126,19 @@ ul.link-list li a:hover {
   position: relative;
   float: left;
   padding-left: 20px;
-  padding-top: 10px;
+  padding-top: 8px;
+}
+
+.nav-search input[type="submit"] {
+  padding: 6px 5px 7px 5px;
+  margin: 4px;
+  font-size: 12px;
+  line-height: 12px;
 }
 
 .nav-search input#search_input_field {
-  width: 250px;
+  font-size: 14px;
+  padding: 2px;
 }
 
 .nav-right {
@@ -171,7 +179,7 @@ ul.link-list li a:hover {
   background-image: url("/assets/search-box-bkgd.jpg");
   background-position: 0px -50px;
   background-size: 100%;
-  height: 250px;
+  height: 270px;
   border-bottom: solid 1px #ddd;
 }
 
@@ -185,7 +193,6 @@ ul.link-list li a:hover {
 
 .search-form {
   text-align: center;
-  padding-top: 20px;
 }
 
 .apartment-list {
@@ -230,20 +237,20 @@ ul.link-list li a:hover {
 ****************************/
 
 
-form.apartment-form, .login-form{
-  width: 325px;
+form.apartment-form, .login-form, .join-form{
+  width: 335px;
   margin: 0 auto;
 }
 
 form.rating-form {
-  width: 550px;
+  width: 560px;
   margin: 0 auto;
   padding-top: 20px;
 } 
 
 label {
   display: inline-block;
-  width: 75px;
+  width: 85px;
   text-align: right;
   padding-right: 10px;
 
@@ -271,6 +278,26 @@ input[type="radio"] {
   padding: 10px;
 }
 
+input[type="submit"] {
+  color: #fff;
+  background-color: #75D2C3;
+  border-top: 1px solid #89f0df;
+  border-left: hidden;
+  border-right: hidden;
+  border-bottom: hidden;
+  border-radius: 4px;
+  padding: 6px 10px 9px 10px;
+  margin: 30px 30px 30px 133px;
+  box-shadow: inset 0 -3px 0 #55988d;
+}
+
+form.join-form input[type="submit"] {
+  margin-left: 147px;
+}
+
+form.search-form input[type="submit"] {
+  margin-left: 10px;
+}
 
 
 

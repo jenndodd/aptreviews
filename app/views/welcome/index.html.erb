@@ -12,12 +12,15 @@
 <div class="apartment-list">
   <%= raw("<p><strong class='error'>#{flash[:search_error_message]}</strong></p>") unless flash[:search_error_message].nil? %>
 
+  
+
+  <h2>Apartment List</h2>
+
   <% if logged_in? %>
     <%= link_to "Add New Apartment", new_user_apartment_path(current_user.id) %>
     <br/>
   <% end %>
 
-  <h2>Apartment List</h2>
   <ul class="link-list">
     <% @apartments.each do |apartment| %>
       <li><%= link_to "#{ apartment.address }, Apartment #{ apartment.unit }", apartment_path(apartment) %></li>
