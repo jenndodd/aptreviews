@@ -10,6 +10,7 @@ pre, form, fieldset, table, th, td { margin: 0; padding: 0; }
 
 /****************************
  ****************************  Basics.
+ ****************************  H-tags, container, lists, links, buttons.
  ****************************/
 
 
@@ -22,15 +23,7 @@ li {
   list-style-type: none;
 }
 
-.color-spacer {
-  height: 48px;
-  width: 100%;
-  top: 0;
-  background-color: #75D2C3;
-  box-shadow: 0 0 2px #666;
-  position: fixed;
-  z-index: 10;
-}
+
 
 .container {
   background-color: #FFF;
@@ -52,12 +45,14 @@ h1 {
 
 h2 {
   text-align: center;
-}
-
-h2.result-header {
   margin-top: 20px;
+  padding: 20px;
 }
 
+h2.reviews {
+  margin-top: 0px;
+  padding-bottom: 0px;
+}
 
 h3 {
   padding-bottom: 20px;
@@ -88,7 +83,15 @@ a:hover {
   color: #e8a4e9;
 }
 
-input[type="submit"] {
+button a {
+  color: #FFF;
+}
+
+button a:hover {
+  color: #FFF;
+}
+
+input[type="submit"], button {
   color: #fff;
   background-color: #75D2C3;
   border-top: 1px solid #89f0df;
@@ -97,10 +100,26 @@ input[type="submit"] {
   border-bottom: hidden;
   border-radius: 4px;
   padding: 5px 10px 8px 10px;
-  margin: 30px 30px 30px 133px;
+  margin: 15px 30px 30px 30px;
   font-size: 16px;
   line-height: 14px;
   box-shadow: inset 0 -3px 0 #55988d;
+}
+
+input[type="submit"]:hover, button:hover {
+  color: #fff;
+  background-color: #75D2C3;
+  border-top: 1px solid #89f0df;
+  border-left: hidden;
+  border-right: hidden;
+  border-bottom: hidden;
+  border-radius: 4px;
+  padding: 5px 10px 5px 10px;
+  margin: 18px 30px 30px 30px;
+  font-size: 16px;
+  line-height: 14px;
+  box-shadow: none;
+  opacity: .7;
 }
 
 
@@ -113,6 +132,10 @@ form.search-form input[type="submit"] {
   margin-left: 10px;
 }
 
+.nearby-search input[type="submit"] {
+
+  margin: 15px 0px 5px 96px;
+}
 
 /****************************
  ****************************  Nav.
@@ -128,6 +151,16 @@ form.search-form input[type="submit"] {
   position: fixed;
   z-index: 15;
  }
+
+ .color-spacer {
+  height: 48px;
+  width: 100%;
+  top: 0;
+  background-color: #75D2C3;
+  box-shadow: 0 0 2px #666;
+  position: fixed;
+  z-index: 10;
+}
 
 .nav-left {
   position: relative;
@@ -164,12 +197,31 @@ form.search-form input[type="submit"] {
   line-height: 12px;
 }
 
+.navbar input[type="submit"]:hover {
+
+  padding: 4px 8px;
+  font-size: 14px;
+  line-height: 12px;
+  box-shadow: none;
+}
+
 .nav-search input[type="submit"] {
   margin: 4px;
+}
+.nav-search input[type="submit"]:hover {
+  margin-top: -3px;
+  margin-bottom: 3px;
+  margin: 7px;
+  opacity: 1;
 }
 
 .nav-right input[type="submit"] {
   margin: 10px 20px;
+}
+
+.nav-right input[type="submit"]:hover {
+  margin: 13px 20px;
+  opacity: 1;
 }
 
 .nav-search input#search_input_field {
@@ -213,8 +265,8 @@ form.search-form input[type="submit"] {
  ****************************/
 
 .search-banner {
+  background-image: url("search-box-bkgd.jpg");
   background-color: #747475;
-  /*background-image: url("/assets/search-box-bkgd.jpg");*/
   background-position: 0px -50px;
   background-size: 100%;
   height: 270px;
@@ -233,13 +285,6 @@ form.search-form input[type="submit"] {
   text-align: center;
 }
 
-.apartment-list {
-  text-align: center;
-}
-
-.apartment-list h2 {
-  padding: 20px;
-}
 
 
  /****************************
@@ -249,6 +294,7 @@ form.search-form input[type="submit"] {
 .map-container {
   padding: 20px;
   float: left;
+  width: 400px;
   position: relative;
 }
 
@@ -264,10 +310,9 @@ form.search-form input[type="submit"] {
   width: 378px;
 }
 
-.review-container {
-
+.center-content {
+  text-align: center;
 }
-
 
 
 /****************************

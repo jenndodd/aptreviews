@@ -1,15 +1,9 @@
 <div class="search-banner">
   <h1> Welcome to AptReviews! </h1>
 
-  <h2>Search for an Address or a Listing URL</h2>
 
-  <form class="search-form" method="GET" action="/apartments/search">
-    <input type="text" name="search_input" id="search_input_field" placeholder="Search Address or URL"/>
-    <input type="submit" />
-  </form>
 </div>
-
-<div class="apartment-list">
+<div class="center-content">
   <%= raw("<p><strong class='error'>#{flash[:search_error_message]}</strong></p>") unless flash[:search_error_message].nil? %>
 
   
@@ -17,7 +11,7 @@
   <h2>Apartment List</h2>
 
   <% if logged_in? %>
-    <%= link_to "Add New Apartment", new_user_apartment_path(current_user.id) %>
+    <button><%= link_to "Add New Apartment", new_user_apartment_path(current_user.id) %></button>
     <br/>
   <% end %>
 

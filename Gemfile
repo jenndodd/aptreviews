@@ -47,7 +47,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'pry-rails', group: [:development, :test]
 
 # Deploying to Heroku
-gem 'rails_12factor', group: :production
+gem 'rails_12factor'
 
 # Geocoder
 gem "geocoder"
