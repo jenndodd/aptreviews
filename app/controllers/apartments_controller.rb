@@ -13,10 +13,12 @@ class ApartmentsController < ApplicationController
 
   def create
     @apartment = Apartment.create(apartment_params)
+    @numbstreet = [@apartment.number, @apartment.street].compact.join(' ')
+    @apartment.address = [@numbstreet, @apartment.city, @apartment.state].compact.join(', ')
     @user = User.find_by(id: session[:user_id])
     @apartment.user = @user
     if @apartment.save
-      redirect_to apartments_path(@apartment)
+      redirect_to apartment_path(@apartment)
     else
       render(:new)
     end
@@ -25,6 +27,7 @@ class ApartmentsController < ApplicationController
   def show
     @user = User.find_by(params[:user_id])
     @apartment = Apartment.find(params[:id])
+    @creator = User.find(@apartment.user_id)
     @map_url_address = make_map_url
     @listings = @apartment.listings.all
     @listing = Listing.new
@@ -52,23 +55,28 @@ class ApartmentsController < ApplicationController
   end
 
   def search
-    @found_apartment = Apartment.where(address: params[:search_input] )
+    @found_apartment = Apartment.where(address: params[:search_input])
 
     if @found_apartment.count == 0
       @found_listing = Listing.find_by(url: params[:search_input])
       if @found_listing.nil?
-        flash[:search_error_message] = "The apartment or listing you searched for does not exist in our database."
-        redirect_to root_path
+        @found_apartment = Apartment.where(city: params[:search_input])
+        if @found_apartment.count == 0
+          flash[:search_error_message] = "The apartment or listing you searched for does not exist in our database."
+          redirect_to root_path
+        elsif @found_apartment.count > 1
+
+          render(:search)
+        else @found_apartment.count == 1
+          redirect_to apartment_path(@found_apartment[0][:id])
+        end 
       else
-        flash[:success_message] = "You found this apartment!"
         redirect_to apartment_path(@found_listing.apartment_id)
       end
     elsif @found_apartment.count > 1
-      flash[:multiple_success_message] = "You found these apartments:"
       render(:search)
     else @found_apartment.count == 1
-      flash[:success_message] = "You found this apartment!"
-      redirect_to apartment_path(@found_apartment[0])
+      redirect_to apartment_path(@found_apartment[0][:id])
     end
   end
 

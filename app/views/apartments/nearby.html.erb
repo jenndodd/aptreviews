@@ -8,7 +8,7 @@
 <div class="nearby-apartments">
 
   <h4>Current Apartment:</h4>
-  <p><%= @origin_apartment.address %>, Apartment <%= @origin_apartment.unit %></p>
+  <a href=<%= apartment_path(@origin_apartment.id) %>><%= @origin_apartment.address %>, Apartment <%= @origin_apartment.unit %></a>
 
   <h4>Nearby Apartments:</h4>
   <% if @nearby_apartments.empty? %> 
@@ -16,7 +16,7 @@
   <% end %>
   <ul class="link-list">
     <% @nearby_apartments.each_with_index do |apartment, index| %>
-      <li><%= index+1 %>. &nbsp <a href=<%= apartment_path(apartment.id) %> target='_blank'> <%= apartment.address %>, Apartment <%= apartment.unit %></a></li>
+      <li><%= index+1 %>. &nbsp <a href=<%= apartment_path(apartment.id) %>> <%= apartment.address %>, Apartment <%= apartment.unit %></a></li>
     <% end %>
   </ul>
 </div>
