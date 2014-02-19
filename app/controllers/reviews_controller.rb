@@ -9,12 +9,11 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.create(review_params)
-    @apartment = Apartment.find_by(params[:apartment_id])
+    @apartment = Apartment.find(params[:apartment_id])
     @user = User.find_by(id: session[:user_id])
     @review.datetime = DateTime.now
     @review.user = @user
     @review.apartment = @apartment
-    
     if @review.save
       redirect_to ("/apartments/#{ @apartment.id }")
     else

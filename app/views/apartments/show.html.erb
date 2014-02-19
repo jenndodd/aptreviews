@@ -48,13 +48,13 @@
 <ul class="review-list">
   <% @reviews.each do |review| %>
     <li class="review-item">
-      <p><%= review.datetime %></p>
+      <p><%= review.datetime.strftime("%m/%d/%Y") %></p>
       <p><%= review.title %></p>
       <p><%= review.review %></p>
-      <p><%= review.rating %></p>
-      <p><%= review.user.username %></p>
+      <p>Rating: <%= review.rating %></p>
+      <p>By <%= review.user.username %></p>
       <% if logged_in? && (current_user.id == review.user_id) %>
-        <p><%= link_to "Edit Your Review", edit_apartment_review_path(@apartment, review) %></p>
+        <!--<p><%= link_to "Edit Your Review", edit_apartment_review_path(@apartment, review) %></p>-->
       <% end %>
     </li>
   <% end %>

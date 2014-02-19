@@ -124,12 +124,16 @@ input[type="submit"]:hover, button:hover {
 
 
 
-form.join-form input[type="submit"] {
+form.join-form input[type="submit"], .login-form input[type="submit"], .apartment-form input[type="submit"] {
   margin-left: 147px;
 }
 
 form.search-form input[type="submit"] {
   margin-left: 10px;
+}
+
+form.rating-form input[type="submit"] {
+  margin-left: 260px;
 }
 
 .nearby-search input[type="submit"] {
@@ -265,20 +269,18 @@ form.search-form input[type="submit"] {
  ****************************/
 
 .search-banner {
-  background-image: url("splash.jpg");
+  background-image: url("splash2.jpg");
   background-color: #747475;
   background-position: 0px -50px;
   background-size: 100%;
   border-bottom: solid 1px #ddd;
-  height: 270px;
-}
-
-.search-banner h1 {
-    color: #FFF;
+  height: 400px;
+  text-align: center;
 }
 
 .search-banner h1{
   padding-top: 50px;
+  color: #FFF;
 }
 
 .search-banner h2 {
@@ -287,6 +289,34 @@ form.search-form input[type="submit"] {
 
 .search-form {
   text-align: center;
+}
+
+ul.icons {
+  text-align: center;
+}
+
+.icons h4 {
+  color: #FFF;
+  padding-top: 5px;
+}
+
+.icons li {
+  display: inline-block;
+  text-align: center;
+}
+
+.icons li img {
+  width: 150px;
+}
+
+.blurb {
+  text-align: center;
+}
+
+.blurb {
+  color: #FFF;
+  width: 600px;
+  margin: 0 auto;
 }
 
 
@@ -322,6 +352,15 @@ form.search-form input[type="submit"] {
   text-align: center;
 }
 
+.review-list {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.review-item {
+  padding-bottom: 15px;
+}
+
 
 /****************************
 ****************************  Forms.
@@ -331,6 +370,10 @@ form.search-form input[type="submit"] {
 form.apartment-form, .login-form, .join-form{
   width: 335px;
   margin: 0 auto;
+}
+
+form.new_listing {
+  margin-top: -15px;
 }
 
 form.rating-form {
@@ -369,6 +412,9 @@ input[type="radio"] {
   padding: 10px;
 }
 
+#apartment_extras {
+  width: 209px;
+}
 
 
 
