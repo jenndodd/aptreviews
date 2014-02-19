@@ -74,6 +74,10 @@ ul.link-list  {
   padding-bottom: 20px;
 }
 
+.link-list li {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
   color: #c468c5;
