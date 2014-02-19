@@ -25,6 +25,26 @@
     <%= f.text_field :unit %>
   </div>
 
+  <div class="label-input">
+    <%= f.label :beds %>
+    <%= f.text_field :beds %>
+  </div>
+
+  <div class="label-input">
+    <%= f.label :baths %>
+    <%= f.text_field :baths %>
+  </div>
+
+  <div class="label-input">
+    <%= f.label :rent %>
+    <%= f.text_field :rent %>
+  </div>
+
+  <div class="label-input">
+    <%= f.label :extras %>
+    <%= f.text_area :extras %>
+  </div>
+
   <%= f.submit @apartment.id.nil? ? "Add!" : "Save Changes" %>
 <% end %>
 

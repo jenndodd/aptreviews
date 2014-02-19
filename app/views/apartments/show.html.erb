@@ -11,15 +11,21 @@
 
 <div class="apartment-details">
   <h3>Details:</h3>
+  <p><strong>Beds:</strong>   <%= @apartment.beds %></p>
+  <p><strong>Baths:</strong>   <%= @apartment.baths %></p>
+  <p><strong>Rent:</strong>   $<%= @apartment.rent %></p>
+  <% unless @apartment.extras.nil? %>
+    <p><strong>Extras:</strong>   <%= @apartment.extras %></p>
+  <% end %>
+  
+
+  <h4>Links to listings:</h4>
   <% if logged_in? %>
     <%= form_for [@apartment, @listing] do |f| %>
-      <%= f.label :url, "Add a URL" %>
-      <%= f.text_field :url %>
+      <%= f.text_field :url, :placeholder => "Add a listing URL" %>
       <%= f.submit "Add" %>
     <% end %>
   <% end %>
-
-  <h4>Links to listings:</h4>
   <ul class="link-list">
     <% @listings.each do |listing| %>
       <li><a href=<%= listing.url %> target='_blank'> <%= listing.url %> </a></li>

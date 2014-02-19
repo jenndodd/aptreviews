@@ -3,6 +3,9 @@ class Apartment < ActiveRecord::Base
   validates :street, presence: true
   validates :city, presence: true
   validates :state, presence: true
+  validates :beds, presence: true
+  validates :baths, presence: true
+  validates :rent, presence: true
 
   validates :unit, presence: true
   validates_uniqueness_of :unit, scope: [:number, :street, :city, :state]
