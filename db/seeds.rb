@@ -1,7 +1,7 @@
-User.destroy_all
-Apartment.destroy_all
-Review.destroy_all
-Listing.destroy_all
+User.delete_all
+Apartment.delete_all
+Review.delete_all
+Listing.delete_all
 
 User.create(username: "jennyd", email: "jenny@d.com", first_name: "Jenny", last_name: "D", password: "jennyd", password_confirmation: "jennyd")
 
