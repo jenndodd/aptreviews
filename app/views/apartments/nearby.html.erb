@@ -1,4 +1,4 @@
-<h1> Apartments near <%= @origin_apartment.address %></h1>
+<h1> Apartments near <%= @apartment.address %></h1>
 
 <%= raw("<p><strong class='success'>#{flash[:success_message]}</strong></p>") unless flash[:success_message].nil? %>
 <div class="map-container">
@@ -8,7 +8,7 @@
 <div class="nearby-apartments">
 
   <h4>Current Apartment:</h4>
-  <a href=<%= apartment_path(@origin_apartment.id) %>><%= @origin_apartment.address %>, Apartment <%= @origin_apartment.unit %></a>
+  <a href=<%= apartment_path(@apartment.id) %>><%= @apartment.address %>, Apartment <%= @apartment.unit %></a>
 
   <h4>Nearby Apartments:</h4>
   <% if @nearby_apartments.empty? %> 
