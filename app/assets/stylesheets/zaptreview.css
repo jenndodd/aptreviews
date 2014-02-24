@@ -104,6 +104,7 @@ input[type="submit"], button {
   border-bottom: hidden;
   border-radius: 4px;
   padding: 5px 10px 8px 10px;
+  position: relative;
   margin: 15px 30px 30px 30px;
   font-size: 16px;
   line-height: 14px;
@@ -111,17 +112,8 @@ input[type="submit"], button {
 }
 
 input[type="submit"]:hover, button:hover {
-  color: #fff;
-  background-color: #75D2C3;
-  border-top: 1px solid #89f0df;
-  border-left: hidden;
-  border-right: hidden;
-  border-bottom: hidden;
-  border-radius: 4px;
   padding: 5px 10px 5px 10px;
   margin: 18px 30px 30px 30px;
-  font-size: 16px;
-  line-height: 14px;
   box-shadow: none;
   opacity: .7;
 }
@@ -132,17 +124,17 @@ form.join-form input[type="submit"], .login-form input[type="submit"], .apartmen
   margin-left: 147px;
 }
 
-form.search-form input[type="submit"] {
-  margin-left: 10px;
-}
-
 form.rating-form input[type="submit"] {
   margin-left: 260px;
 }
 
 .nearby-search input[type="submit"] {
+  margin-top: 15px;
+  margin-left: 105px;
+}
 
-  margin: 15px 0px 5px 96px;
+.nearby-search input[type="submit"]:hover {
+  margin-top: 18px;
 }
 
 /****************************
@@ -203,39 +195,33 @@ form.rating-form input[type="submit"] {
   padding: 4px 8px 7px 8px;
   font-size: 14px;
   line-height: 12px;
-}
-
-.navbar input[type="submit"]:hover {
-
-  padding: 4px 8px;
-  font-size: 14px;
-  line-height: 12px;
-  box-shadow: none;
-}
-
-.nav-search input[type="submit"] {
-  margin: 4px;
-}
-.nav-search input[type="submit"]:hover {
-  margin-top: -3px;
-  margin-bottom: 3px;
-  margin: 7px;
-  opacity: 1;
-}
-
-.nav-right input[type="submit"] {
   margin: 10px 20px;
 }
 
-.nav-right input[type="submit"]:hover {
-  margin: 13px 20px;
+.navbar input[type="submit"]:hover {
+  padding: 4px 8px;
+  box-shadow: none;
   opacity: 1;
+  margin: 13px 20px;
+}
+
+.nav-search input[type="submit"] {
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 265px;
+}
+
+.nav-search input[type="submit"]:hover {
+  margin-top: 8px;
+  margin-left: 265px;
 }
 
 .nav-search input#search_input_field {
+  position: absolute;
   font-size: 14px;
   padding: 2px;
   width: 250px;
+  margin-top: 4px;
 }
 
 .nav-right {
@@ -371,13 +357,32 @@ ul.icons {
 ****************************/
 
 
-form.apartment-form, .login-form, .join-form{
+form.apartment-form, .login-form, .join-form {
   width: 335px;
   margin: 0 auto;
 }
 
-form.new_listing {
+form#new_listing {
+  margin-bottom: 20px;
+}
+
+#new_listing input#search_input_field {
+  position: absolute;
+  font-size: 14px;
+  padding: 2px;
+  width: 250px;
   margin-top: -15px;
+  margin-bottom: 25px;
+}
+
+#new_listing input[type="submit"] {
+  position: absolute;
+  padding: 4px 8px 7px 8px;
+  margin: 0px 7px;
+}
+
+#new_listing input[type="submit"]:hover {
+  margin-top: 3px;
 }
 
 form.rating-form {
