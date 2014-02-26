@@ -5,7 +5,19 @@
 
   <p><%= link_to "Browse Apartments", apartments_path %></p>
 
-  <%= form_tag user_path(@user), method: "delete" do %>
-    <%= submit_tag("Delete My Account") %>
-  <% end %>
+  <%= link_to "Delete My Account", user_path(@user), method: :delete, data: { confirm: "Are you sure?" } %>
+
+  <h4>Apartments <%= @user.first_name %> Added:</h4>
+  <ul>
+    <% @user.apartments.each do |apt| %>
+    <li><%= apt.address %></li>
+    <% end %>
+  </ul>
+
+  <h4>Reviews <%= @user.first_name %> Added:</h4>
+  <ul>
+    <% @user.reviews.each do |review| %>
+    <li><%= review.title %></li>
+    <% end %>
+  </ul>
 </div>

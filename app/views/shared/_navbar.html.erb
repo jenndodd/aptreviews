@@ -15,9 +15,10 @@
       </ul>
     <% else %>
       <% user = User.find(session[:user_id]) %>
-      <%= form_tag session_path, method: "delete" do %>
-        <%= submit_tag("Log out, #{ user.username }") %>
-      <% end %>
+      <ul>
+        <li><%= link_to "My Profile", user_path(user), id: 'profile'  %></li>
+        <li><%= link_to "Logout", session_path, method: :delete %></li>
+      </ul>
     <% end %>
   </div>
 </div>

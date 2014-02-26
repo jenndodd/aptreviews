@@ -44,10 +44,27 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'pry-rails', group: [:development, :test]
 
 # Deploying to Heroku
 gem 'rails_12factor'
 
 # Geocoder
 gem "geocoder"
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+end
+
+
+
+
+
+
+
+
